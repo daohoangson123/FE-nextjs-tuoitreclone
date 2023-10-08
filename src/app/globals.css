@@ -1,3 +1,58 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-image: url(../assets/mainBg.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.navBot ul::-webkit-scrollbar {
+    height: 5px;
+}
+
+.navBot:hover ul::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+abbr {
+    text-decoration: none;
+}
+
+.layoutContainer {
+    max-width: 1280px;
+    margin: auto;
+    padding-inline: 16px;
+}
+
+.leftBanner {
+    position: absolute;
+    left: -160px;
+    width: 200px;
+    height: 600px;
+    background-image: url(../assets/trai.png);
+    background-repeat: no-repeat;
+}
+
+.rightBanner {
+    position: absolute;
+    right: -220px;
+    width: 200px;
+    height: 600px;
+    background-image: url(../assets/phai.png);
+    background-repeat: no-repeat;
+}
+
+@media (width <= 1280px) {
+    .layoutContainer {
+        padding: 8px 16px;
+    }
+}
+
+@media (width <= 900px) {
+    .homeFocus__sub {
+        display: none;
+    }
+}
