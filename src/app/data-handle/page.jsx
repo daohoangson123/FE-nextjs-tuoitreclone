@@ -26,45 +26,48 @@ export default function DataHandle() {
             });
     }
 
-    // getUserList();
-
     useEffect(() => {
         getUserList();
     }, []);
 
     return (
         <section className='data-handle'>
-            <table>
-                <thead>
-                    <tr>
-                        {userDataTH.map((th) => (
-                            <th
-                                key={th}
-                                className='border border-orange-600 p-2'>
-                                {th}
-                            </th>
-                        ))}
-                    </tr>
-                </thead>
-                <tbody>
-                    {userData.map((user) => (
-                        <tr key={user.id}>
-                            <td className='border border-orange-600 p-2'>
-                                {user.id}
-                            </td>
-                            <td className='border border-orange-600 p-2'>
-                                {user.email}
-                            </td>
-                            <td className='border border-orange-600 p-2'>
-                                {user.name}
-                            </td>
-                            <td className='border border-orange-600 p-2'>
-                                {user.city}
-                            </td>
+            {userData.length > 0 ? (
+                <table>
+                    <thead>
+                        <tr>
+                            {userDataTH.map((th) => (
+                                <th
+                                    key={th}
+                                    className='border border-orange-600 p-2'
+                                >
+                                    {th}
+                                </th>
+                            ))}
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        {userData.map((user) => (
+                            <tr key={user.id}>
+                                <td className='border border-orange-600 p-2'>
+                                    {user.id}
+                                </td>
+                                <td className='border border-orange-600 p-2'>
+                                    {user.email}
+                                </td>
+                                <td className='border border-orange-600 p-2'>
+                                    {user.name}
+                                </td>
+                                <td className='border border-orange-600 p-2'>
+                                    {user.city}
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            ) : (
+                <div>No data</div>
+            )}
         </section>
     );
 }

@@ -12,79 +12,72 @@ export default function HomeFocus() {
         <div className='homeFocus flex flex-wrap gap-3 border-b border-slate-200 py-3'>
             <ul className='homeFocus__list order-2 sm:order-1 sm:w-[220px]'>
                 {hFocus_List.map((itemList) => (
-                    <abbr
+                    <li
                         title={itemList.content}
                         key={itemList.content}
-                        className='first:font-semibold'>
-                        <li className='pb-2 border-b border-dotted border-slate-200 hover:text-red-500 cursor-pointer'>
-                            {itemList.content}
-                        </li>
-                    </abbr>
+                        className='first:font-semibold pb-2 border-b border-dotted border-slate-200 hover:text-red-500 cursor-pointer'
+                    >
+                        {itemList.content}
+                    </li>
                 ))}
             </ul>
             <div
                 className='homeFocus__main order-1 grow sm:border-x border-slate-200 sm:px-3'
-                style={{ width: 'clamp(360px, 39vw, 700px)' }}>
+                style={{ width: 'clamp(360px, 39vw, 700px)' }}
+            >
                 {tinNoiBat.map((item) => (
                     <div className='tinnoibat flex flex-wrap gap-3 border-b border-slate-200 pb-3 cursor-pointer'>
-                        <abbr
+                        <Image
                             title={item.title}
-                            className='grow sm:w-[420px]'>
-                            <Image
-                                src={item.imgUrl}
-                                alt={item.title}
-                                width={420}
-                                height={250}
-                                loading='lazy'
-                                className='rounded-md sm:rounded-none w-full'
-                            />
-                        </abbr>
+                            src={item.imgUrl}
+                            alt={item.title}
+                            width={420}
+                            height={250}
+                            loading='lazy'
+                            className='grow sm:w-[420px] rounded-md sm:rounded-none w-full'
+                        />
                         <div className='grid gap-3 grow sm:w-[240px] '>
-                            <abbr
+                            <h2
                                 title={item.title}
-                                className='text-2xl font-semibold hover:text-red-500'>
-                                <h2>{item.title}</h2>
-                            </abbr>
-                            <p className=''>{item.content}</p>
+                                className='text-2xl font-semibold hover:text-red-500'
+                            >
+                                {item.title}
+                            </h2>
+                            <p>{item.content}</p>
                         </div>
                     </div>
                 ))}
                 <div className='hidden sm:grid grid-cols-3 gap-3'>
                     {hFocus_Main.map((itemMain) => (
                         <div className='hover:text-red-500 cursor-pointer'>
-                            <abbr
+                            <Image
                                 title={itemMain.title}
-                                className=''>
-                                <Image
-                                    src={itemMain.imgUrl}
-                                    alt={itemMain.title}
-                                    width={215}
-                                    height={150}
-                                    loading='lazy'
-                                    className='pt-3 object-cover w-full'
-                                />
-                            </abbr>
-                            <abbr title={itemMain.title}>
-                                <h2 className='text-lg font-semibold line-clamp-3'>
-                                    {itemMain.title}
-                                </h2>
-                            </abbr>
+                                src={itemMain.imgUrl}
+                                alt={itemMain.title}
+                                width={215}
+                                height={150}
+                                loading='lazy'
+                                className='pt-3 object-cover w-full'
+                            />
+                            <h2
+                                title={itemMain.title}
+                                className='text-lg font-semibold line-clamp-3'
+                            >
+                                {itemMain.title}
+                            </h2>
                         </div>
                     ))}
                 </div>
             </div>
             <div className='homeFocus__sub order-3 flex flex-wrap justify-center sm:flex-col sm:justify-normal gap-3'>
                 {hFocus_Sub.map((itemSub) => (
-                    <abbr
+                    <Image
                         title={itemSub.title}
-                        className=''>
-                        <Image
-                            src={itemSub.imgUrl}
-                            alt={itemSub.title}
-                            loading='lazy'
-                            className=''
-                        />
-                    </abbr>
+                        src={itemSub.imgUrl}
+                        alt={itemSub.title}
+                        loading='lazy'
+                        className=''
+                    />
                 ))}
             </div>
         </div>

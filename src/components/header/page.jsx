@@ -93,13 +93,15 @@ export default function Header({ routes, videoRoutes }) {
                         <div className='layoutContainer flex justify-between items-center gap-5 text-white'>
                             <div
                                 className='sm:hidden cursor-pointer'
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                            >
                                 {isMenuOpen ? <FaX /> : <FaBars />}
                             </div>
                             <Link
                                 href='/'
                                 className='logo'
-                                onClick={randomBanner}>
+                                onClick={randomBanner}
+                            >
                                 <Image
                                     src={logo}
                                     alt='Logo'
@@ -113,7 +115,8 @@ export default function Header({ routes, videoRoutes }) {
                                     <li className='border-r-[1px] pr-3'>
                                         <Link
                                             href='podcast'
-                                            className='flex gap-2 items-center'>
+                                            className='flex gap-2 items-center'
+                                        >
                                             <FaMicrophone />
                                             Podcast
                                         </Link>
@@ -121,7 +124,8 @@ export default function Header({ routes, videoRoutes }) {
                                     <li className='border-r-[1px] pr-3'>
                                         <Link
                                             href='https://www.youtube.com/channel/UC47WI-kZXFf0H_f7pvaNCEQ'
-                                            className='flex gap-2 items-center'>
+                                            className='flex gap-2 items-center'
+                                        >
                                             <FaSquareYoutube />
                                             YouTube
                                         </Link>
@@ -129,7 +133,8 @@ export default function Header({ routes, videoRoutes }) {
                                     <li className='border-r-[1px] pr-3'>
                                         <Link
                                             href='can-biet'
-                                            className='flex gap-2 items-center'>
+                                            className='flex gap-2 items-center'
+                                        >
                                             <FaRegLightbulb />
                                             Cần biết
                                         </Link>
@@ -137,7 +142,8 @@ export default function Header({ routes, videoRoutes }) {
                                     <li className='border-r-[1px] pr-3'>
                                         <Link
                                             href='rao-vat'
-                                            className='flex gap-2 items-center'>
+                                            className='flex gap-2 items-center'
+                                        >
                                             <FaBox />
                                             Rao vặt
                                         </Link>
@@ -147,7 +153,8 @@ export default function Header({ routes, videoRoutes }) {
                                     <div
                                         className={`${
                                             isSearching ? 'w-[200px]' : 'w-4'
-                                        } flex gap-3 items-center transition-all ease-linear overflow-x-hidden`}>
+                                        } flex gap-3 items-center transition-all ease-linear overflow-x-hidden`}
+                                    >
                                         <FaMagnifyingGlass
                                             id='SearchIcon'
                                             className={`min-w-max transition-all ease-linear cursor-pointer`}
@@ -165,7 +172,8 @@ export default function Header({ routes, videoRoutes }) {
                                     <div
                                         className={`${
                                             isMenuOpen ? 'grid' : 'hidden'
-                                        } overflow-hidden gap-3 place-items-center items-center sm:flex transition-all ease-linear`}>
+                                        } overflow-hidden gap-3 place-items-center items-center sm:flex transition-all ease-linear`}
+                                    >
                                         <Link href='data-handle'>
                                             <FaUser className='cursor-pointer min-w-[16px]' />
                                         </Link>
@@ -181,8 +189,9 @@ export default function Header({ routes, videoRoutes }) {
                     </div>
                 </nav>
                 <ul
-                    className='navMobile px-4 grid bg-white px- max-h-0 transition-all overflow-y-scroll'
-                    style={{ maxHeight: isMenuOpen ? '600px' : 0 }}>
+                    className='navMobile px-4 grid bg-white transition-all overflow-y-scroll'
+                    style={{ height: isMenuOpen ? '100vh' : 0 }}
+                >
                     <li className='searchMobile mt-3 px-2 py-3 flex justify-between items-center border-b border-slate-100 bg-slate-100'>
                         <input
                             id='SearchInput'
@@ -210,8 +219,12 @@ export default function Header({ routes, videoRoutes }) {
                                     link.href === ''
                                         ? 'border-none'
                                         : 'border-collapse py-3'
-                                }`}>
-                                <Link href={`/${link.href}`}>
+                                }`}
+                            >
+                                <Link
+                                    href={`/${link.href}`}
+                                    className='inline-block w-full'
+                                >
                                     {link.name !== 'trang chủ' &&
                                         link.name.toUpperCase()}
                                 </Link>
@@ -237,7 +250,8 @@ export default function Header({ routes, videoRoutes }) {
                                                   ? 'text-red-500'
                                                   : 'text-black'
                                           }
-                                          hover:text-red-500 min-w-max`}>
+                                          hover:text-red-500 min-w-max`}
+                                      >
                                           <Link
                                               href={
                                                   isActive
@@ -247,7 +261,8 @@ export default function Header({ routes, videoRoutes }) {
                                                             '/videos/'
                                                       ? link.href
                                                       : `videos/${link.href}`
-                                              }>
+                                              }
+                                          >
                                               {link.name.toUpperCase()}
                                           </Link>
                                       </li>
@@ -264,7 +279,8 @@ export default function Header({ routes, videoRoutes }) {
                                                   ? 'text-red-500'
                                                   : 'text-black'
                                           }
-                                        hover:text-red-500 min-w-max`}>
+                                        hover:text-red-500 min-w-max`}
+                                      >
                                           <Link href={link.href}>
                                               {link.name === 'trang chủ' ? (
                                                   <Image

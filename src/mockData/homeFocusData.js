@@ -9,6 +9,8 @@ const ngay = date.getDate();
 const thang = date.getMonth() + 1;
 const nam = date.getFullYear();
 
+console.log(ngay, thang, nam);
+
 const getThu = (thu) => {
     switch (thu) {
         case 1:
@@ -31,9 +33,9 @@ const getThu = (thu) => {
 export const hFocus_List = [
     {
         content: `${getThu(thu)} ngày ${
-            ngay.toString.length === 1 ? `0${ngay}` : ngay
+            ngay.toString().length === 1 ? `0${ngay}` : ngay
         }-${
-            thang.toString.length === 1 ? `0${thang}` : thang
+            thang.toString().length === 1 ? `0${thang}` : thang
         }-${nam}, TP. Hồ Chí Minh 26° - 33°C`,
     },
     {

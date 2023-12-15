@@ -14,16 +14,14 @@ export default function TopAdBanner({ randomBannerId }) {
             {adList
                 .filter((banner) => banner.id === randomBannerId)
                 .map((banner) => (
-                    <abbr
+                    <Image
                         title={banner.des}
-                        key={banner.id}>
-                        <Image
-                            src={banner.url}
-                            alt={banner.des}
-                            loading='lazy'
-                            className='w-[1280px] h-[150px] sm:h-[250px] object-scale-down object-center'
-                        />
-                    </abbr>
+                        key={banner.id}
+                        src={banner.url}
+                        alt={banner.des}
+                        loading='lazy'
+                        className='w-[1280px] h-[150px] sm:h-[250px] object-scale-down object-center'
+                    />
                 ))}
         </div>
     );

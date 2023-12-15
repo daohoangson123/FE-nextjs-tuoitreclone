@@ -45,17 +45,13 @@ export default function RootLayout({ children }) {
                     href='/site.webmanifest'
                 />
             </Head>
-            <body className='overflow-x-hidden'>
+            <body className='body'>
                 <Header
                     routes={routes}
                     videoRoutes={videoRoutes}
                 />
-                <main className='layoutContainer bg-white'>
-                    <div className='main-container relative'>
-                        <div className='leftBanner hidden sm:block'></div>
-                        <div className='rightBanner hidden sm:block'></div>
-                        {children}
-                    </div>
+                <main className='bg-white main-container layoutContainer'>
+                    {children}
                 </main>
                 <Footer />
             </body>
