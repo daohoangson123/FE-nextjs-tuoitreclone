@@ -5,6 +5,7 @@ import {
     tinNoiBat,
 } from '@/mockData/homeFocusData';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 
 export default function HomeFocus() {
@@ -15,16 +16,14 @@ export default function HomeFocus() {
                     <li
                         title={itemList.content}
                         key={itemList.content}
-                        className='first:font-semibold pb-2 border-b border-dotted border-slate-200 hover:text-red-500 cursor-pointer'
-                    >
+                        className='first:font-semibold pb-2 border-b border-dotted border-slate-200 hover:text-red-500 cursor-pointer'>
                         {itemList.content}
                     </li>
                 ))}
             </ul>
             <div
                 className='homeFocus__main order-1 grow sm:border-x border-slate-200 sm:px-3'
-                style={{ width: 'clamp(360px, 39vw, 700px)' }}
-            >
+                style={{ width: 'clamp(360px, 39vw, 700px)' }}>
                 {tinNoiBat.map((item) => (
                     <div className='tinnoibat flex flex-wrap gap-3 border-b border-slate-200 pb-3 cursor-pointer'>
                         <Image
@@ -39,8 +38,7 @@ export default function HomeFocus() {
                         <div className='grid gap-3 grow sm:w-[240px] '>
                             <h2
                                 title={item.title}
-                                className='text-2xl font-semibold hover:text-red-500'
-                            >
+                                className='text-2xl font-semibold hover:text-red-500'>
                                 {item.title}
                             </h2>
                             <p>{item.content}</p>
@@ -49,7 +47,9 @@ export default function HomeFocus() {
                 ))}
                 <div className='hidden sm:grid grid-cols-3 gap-3'>
                     {hFocus_Main.map((itemMain) => (
-                        <div className='hover:text-red-500 cursor-pointer'>
+                        <Link
+                            href={`/thoi-su/${itemMain.id}`}
+                            className='hover:text-red-500 cursor-pointer'>
                             <Image
                                 title={itemMain.title}
                                 src={itemMain.imgUrl}
@@ -61,11 +61,10 @@ export default function HomeFocus() {
                             />
                             <h2
                                 title={itemMain.title}
-                                className='text-lg font-semibold line-clamp-3'
-                            >
+                                className='text-lg font-semibold line-clamp-3'>
                                 {itemMain.title}
                             </h2>
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>

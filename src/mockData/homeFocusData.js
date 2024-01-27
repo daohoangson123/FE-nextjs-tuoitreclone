@@ -9,8 +9,6 @@ const ngay = date.getDate();
 const thang = date.getMonth() + 1;
 const nam = date.getFullYear();
 
-console.log(ngay, thang, nam);
-
 const getThu = (thu) => {
     switch (thu) {
         case 1:
@@ -78,14 +76,17 @@ export const tinNoiBat = [
 
 export const hFocus_Main = [
     {
+        id: 1,
         title: "Jack: 'Tôi đã chi một khoản rất lớn cho những người kết nối gặp Messi'",
         imgUrl: anh1,
     },
     {
+        id: 2,
         title: 'Nổ bóng bay làm 10 học sinh bị bỏng: Thầy giáo cầm thuốc lá gây ra vụ nổ',
         imgUrl: anh2,
     },
     {
+        id: 3,
         title: 'Xôn xao nữ học sinh tiểu học làm DJ trong ngày khai giảng, cô giáo và các bạn cùng nhảy',
         imgUrl: anh3,
     },

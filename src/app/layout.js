@@ -4,6 +4,8 @@ import Footer from '@/components/footer/page';
 import Header from '@/components/header/page';
 import { routes } from '@/routes/routes';
 import { videoRoutes } from '@/routes/videoRoutes';
+import mainBgL from '@/assets/mainBg.png';
+import mainBgS from '@/assets/mainBg425x425.png';
 import Head from 'next/head';
 //
 
@@ -49,6 +51,18 @@ export default function RootLayout({ children }) {
                 <Header
                     routes={routes}
                     videoRoutes={videoRoutes}
+                />
+                <img
+                    src={mainBgS.src}
+                    alt='body-background'
+                    srcSet={`${mainBgS.src} 400w, ${mainBgL.src} 1600w`}
+                    style={{
+                        position: 'absolute',
+                        inset: 0,
+                        width: '100%',
+                        height: '100%',
+                        zIndex: -1,
+                    }}
                 />
                 <main className='bg-white main-container layoutContainer'>
                     {children}

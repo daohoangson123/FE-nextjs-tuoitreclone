@@ -1,7 +1,8 @@
 'use client';
 
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { useEffect, useLayoutEffect, useState } from 'react';
 
 export default function DataHandle() {
     const [userData, setUserData] = useState([]);
@@ -12,10 +13,9 @@ export default function DataHandle() {
             .get('http://localhost:8081/api/user-list')
             .then(function (res) {
                 // console.log(res.data);
-
-                setUserData(res.data);
                 let tableH = Object.keys(res.data[0]);
                 setUserDataTH(tableH);
+                setUserData(res.data);
                 return res.data;
             })
             .catch(function (err) {
@@ -24,6 +24,13 @@ export default function DataHandle() {
             .finally(function () {
                 // console.log('API CAllED');
             });
+    }
+
+    function handleDelete(userId) {
+        axios.post('http://localhost:8081/delete-user/:id', {
+            userId: userId,
+        });
+        getUserList();
     }
 
     useEffect(() => {
@@ -39,8 +46,7 @@ export default function DataHandle() {
                             {userDataTH.map((th) => (
                                 <th
                                     key={th}
-                                    className='border border-orange-600 p-2'
-                                >
+                                    className='border border-orange-600 p-2'>
                                     {th}
                                 </th>
                             ))}
@@ -61,6 +67,9 @@ export default function DataHandle() {
                                 <td className='border border-orange-600 p-2'>
                                     {user.city}
                                 </td>
+                                <button onClick={() => handleDelete(user.id)}>
+                                    <Link href='/data-handle'>Delete</Link>
+                                </button>
                             </tr>
                         ))}
                     </tbody>
